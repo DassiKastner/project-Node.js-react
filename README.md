@@ -61,7 +61,7 @@ npm start
 ## Screenshots / Demo
 
 ### דף כניסה
-![Home Page](screenshots/login.png)
+![Login Page](screenshots/login.png)
 ### דף הבית
 ![Home Page](screenshots/home.png)
 ### סל הקניות
