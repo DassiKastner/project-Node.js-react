@@ -1,8 +1,9 @@
+       
 # חנות משחקי ילדים
 
 **חנות משחקי ילדים** הוא אתר למכירת משחקים לילדים ותינוקות, עם דגש על נראות מודרנית וחוויית משתמש נעימה.
 
-                                                                                                                                                                                                                  ---
+---
 
 ## תיאור הפרויקט
 האתר כולל את העמודים והתכונות הבאים:
@@ -16,14 +17,15 @@
 
 הדגש בפרויקט הוא על **עיצוב נקי ומודרני** באמצעות Material UI וחוויית משתמש נוחה ואינטואיטיבית.
 
-                                                                                                                                                                                                                  ---
+---
 
 ## טכנולוגיות
--**קליינט:** React, Material UI
--**שרת:** Node.js
--**מסד נתונים:** MongoDB
+- **Frontend:** React, Material UI  
+- **Backend:** Node.js, Express  
+- **Database:** MongoDB  
+- **State Management:** localStorage (לטוקן משתמש)
 
-                                                                                                                                                                                                                  ---
+---
 
 ## תכונות עיקריות
 - הצגת מוצרים בדף הבית  
@@ -34,42 +36,37 @@
 - כל הנתונים נשמרים ב־MongoDB  
 - עיצוב נקי ומודרני עם Material UI  
 
-                                                                                                                                                                                                                  ---
+---
 
 ## איך להפעיל את הפרויקט
 
 1. התקנה של התלויות:
-                                                                                                                                                                                                              ```bash
-   
+
+```bash
 # בתוך תיקיית השרת
-                                                                                                                                                                                                          cd server
-                                                                                                                                                                                                          npm install
+cd server
+npm install
 
 # בתוך תיקיית הלקוח
-                                                                                                                                                                                                        cd ../client
-                                                                                                                                                                                                        npm install
-
+cd ../client
+npm install
 # הפעלת השרת
-                                                                                                                                                                                                            cd server
-                                                                                                                                                                                                            npm start
+cd server
+npm start
 
 # הפעלת הלקוח
-                                                                                                                                                                                                        cd ../client
-                                                                                                                                                                                                        npm start
+cd ../client
+npm start
 
-                                                                                                                                                                                                ## Screenshots / Demo
+## Screenshots / Demo
 
 ### דף כניסה
-                                                                                                                                                                                ![Home Page](screenshots/login.png)
-
+![Home Page](screenshots/login.png)
 ### דף הבית
-                                                                                                                                                                                  ![Home Page](screenshots/home.png)
-
+![Home Page](screenshots/home.png)
 ### סל הקניות
-                                                                                                                                                                              ![Shopping Cart](screenshots/cart.png)
-
+![Shopping Cart](screenshots/cart.png)
 ### ניהול מוצרים
-                                                                                                                                                                        ![Product Management](screenshots/admin.png)
-
+![Product Management](screenshots/admin.png)
 
 
