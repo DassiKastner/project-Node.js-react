@@ -1,0 +1,173 @@
+/* header, footer{
+  background-color: black;
+  color: rgb(254, 254, 254);
+  display: grid;
+  place-content: center;
+}
+
+.template {
+  max-width: 600px;
+  max-height: 4000px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+p {
+  font-size: 16px;
+  color: #666;
+}
+
+img{
+  width: 200px;
+  height: 200px;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: linear-gradient(135deg, #cb5791 0%, #5b8ab8 100%);
+}
+
+
+.header {
+  background-color: #333;
+  color: #fff;
+  padding: 1rem;
+  text-align: center;
+}
+
+.header h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+
+.main-content {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #f7f7f7;
+  border: 1px solid #ddd;
+}
+
+.product-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.product-list li {
+  padding: 1rem;
+  border-bottom: 1px solid #ddd;
+}
+
+.product-list li:last-child {
+  border-bottom: none;
+}
+
+.product-title {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.product-delete-btn {
+  background-color: #e74c3c;
+  color: #fff;
+  border-radius: 5px;
+  border: none;
+  height: 35px;
+  font-size: 2rem;
+}
+
+.product-delete-btn:hover {
+  background-color: #c0392b;
+}
+
+.product-update-btn{
+  background-color: #3498db;
+  color: #fff;
+  height: 35px;
+  font-size: 2rem;
+  border: none;
+  border-radius: 5px;
+}
+
+.product-update-btn:hover{
+  background-color: #2ecc71;
+}
+
+.page{
+  display: grid;
+  grid-template-rows: 50px 1fr 30px;
+  min-height: 100vh;
+}
+
+.nav{
+  display: flex;
+  gap: 10px;
+  font-size: 1.5rem;
+}
+
+.nav a{
+  color: white;
+}
+
+.nav a.active{
+  background-color: white;
+  color: black;
+}
+
+.logout{
+  background-color: white;
+  height: 20px;
+  color: black;
+}
+
+.otef{
+  display: flex;
+  font-size: 1rem;
+  flex-direction: row;
+  gap: 800px;
+} */
+
+body {
+  /* font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0; */
+  /* background-color: linear-gradient(135deg, #cb5791 0%, #5b8ab8 100%); */
+  background-color: linear-gradient(135deg, #7f003f 0%, #5b8ab8 100%);
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.7;
+  }
+  70% {
+    transform: scale(1.15);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+}
+
+.navbar {
+  direction: ltr;
+}
+
