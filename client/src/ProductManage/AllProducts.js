@@ -79,7 +79,7 @@ const AllProducts = () => {
                 justifyContent: "space-between",
                 }}
             >
-            <Box>
+            <Box dir="rtl">
                 <Typography
                     variant="h6"
                     sx={{ fontWeight: "bold", color: "#F4A7C1", mb: 1 }}
@@ -95,7 +95,7 @@ const AllProducts = () => {
                 <Button
                     variant="contained"
                     fullWidth
-                    startIcon={<EditIcon />}      
+                    // startIcon={<EditIcon />}      
                     onClick={() => navigate(`/UpdateProduct/${item._id}`)}
                     sx={{
                     backgroundColor: "#F4A7C1",
@@ -105,7 +105,7 @@ const AllProducts = () => {
                     "&:hover": { backgroundColor: "#E88BB0" },
                     }}
                 >
-                    עריכה
+                    עריכת המוצר
                 </Button>
                 <DeleteProduct item={item} GetProducts={GetProducts} />
             </Stack>

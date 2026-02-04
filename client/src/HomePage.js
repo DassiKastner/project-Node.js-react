@@ -20,6 +20,7 @@ import { useRef } from "react";
 import Testimonials from "./Testimonials"
 import { motion, AnimatePresence } from "framer-motion";
 import AddToCartButton from "./AddToCartButton"
+import SearchIcon from '@mui/icons-material/Search';
 
 const HomePage = () => {
   const [products, setProducts] = useState([]);
@@ -119,7 +120,7 @@ const HomePage = () => {
     spacing={3}
     alignItems="center"
   > */}
-<Box dir="rtl" sx={{ display: "flex", gap: 2, mb: 3, flexWrap: "wrap" }}>
+<Box dir="rtl" sx={{ display: "flex", gap: 8, mb: 3, flexWrap: "wrap" }}>
   {/* חיפוש */}
   <TextField
   label="חיפוש מוצר"
@@ -129,7 +130,7 @@ const HomePage = () => {
   size="small"
   InputProps={{
     startAdornment: (
-      <InputAdornment position="start">🔍</InputAdornment>
+      <InputAdornment position="start"><SearchIcon/></InputAdornment>
     ),
   }}
   sx={{
@@ -140,7 +141,7 @@ const HomePage = () => {
   }}
 />
 
-<Box sx={{ width: 200 }}>
+<Box sx={{ width: 200, mt: -2 }}>
   <Typography
     sx={{
       fontSize: "0.9rem",
@@ -159,11 +160,11 @@ const HomePage = () => {
     min={0}
     max={500}
     step={10}
-    valueLabelDisplay="on"
+    valueLabelDisplay="auto"
     sx={{
-      color: "#F4A7C1",
+      color: "#ffe68b",
       "& .MuiSlider-thumb": {
-        boxShadow: "0 0 0 6px rgba(244,167,193,0.2)",
+        boxShadow: "0 0 0 6px #fbf3d4",
       },
     }}
   />
@@ -171,6 +172,7 @@ const HomePage = () => {
 
 {/* </Stack> */}
 </Box>
+
     <Box  ref={productsRef}>
       <Grid container spacing={4} justifyContent="center">
         {filteredProducts.map((item) => (
