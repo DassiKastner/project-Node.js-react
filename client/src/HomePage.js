@@ -1,6 +1,5 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { Snackbar, Alert } from "@mui/material";
 import {
   Box,
@@ -12,19 +11,17 @@ import {
   TextField,
   Slider,
   InputAdornment,
-  Stack,
 } from "@mui/material";
-import AddIcon from '@mui/icons-material/Add';
 import HomeHeroVideo from "./HomeHero";
 import { useRef } from "react";
 import Testimonials from "./Testimonials"
-import { motion, AnimatePresence } from "framer-motion";
 import AddToCartButton from "./AddToCartButton"
 import SearchIcon from '@mui/icons-material/Search';
 
 const HomePage = () => {
   const [products, setProducts] = useState([]);
   const [snackbarOpen, setSnackbarOpen] = useState(false);
+  const [goToLoginOpen, setGoToLoginOpen] = useState(false);
   const token = localStorage.getItem("token");
   const productsRef = useRef(null);
   const [searchTerm, setSearchTerm] = useState("");
@@ -55,7 +52,10 @@ const HomePage = () => {
 
   const AddToCart = async (productId) => {
     debugger
-    if (!token) return;
+    if (!token){
+      setGoToLoginOpen(true);
+      return false;
+    }
     try {
         await axios.post(
         "http://localhost:7001/api/cart",
@@ -63,8 +63,10 @@ const HomePage = () => {
         { headers: { authorization: `Bearer ${token}` } }
         );
         setSnackbarOpen(true);
+        return true;
     } catch {
-        alert("Failed to add to cart");
+      console.log("Failed to add to cart");  
+      return false;     
     }
   };
 
@@ -91,7 +93,7 @@ const HomePage = () => {
       }}
     >
       <HomeHeroVideo scrollToProduct={scrollToProducts} />
-      <Typography
+      {/* <Typography
         align="center"
         sx={{
           fontSize: "2.2rem",
@@ -101,7 +103,35 @@ const HomePage = () => {
         }}
       >
         ✨ מוצרים שילדים אוהבים ✨
-      </Typography>
+      </Typography> */}
+      <Typography
+  align="center"
+  sx={{
+    fontSize: "2.2rem",
+    fontWeight: "bold",
+    color: "#9cccec",
+    mb: 5,
+    animation: "glow 2s infinite ease-in-out",
+
+    "@keyframes glow": {
+      "0%": {
+        opacity: 1,
+        textShadow: "0 0 5px rgba(156,204,236,0.4)",
+      },
+      "50%": {
+        opacity: 0.6,
+        textShadow: "0 0 20px rgba(156,204,236,0.9)",
+      },
+      "100%": {
+        opacity: 1,
+        textShadow: "0 0 5px rgba(156,204,236,0.4)",
+      },
+    },
+  }}
+>
+   מוצרים שילדים אוהבים 
+</Typography>
+
 
     <Box dir="rtl" sx={{ display: "flex", gap: 8, mb: 3, flexWrap: "wrap" }}>
       <TextField
@@ -252,6 +282,16 @@ const HomePage = () => {
         >
         <Alert severity="success" sx={{ fontWeight: "bold", fontSize: "1rem" }}>
             !נוסף לסל בהצלחה
+        </Alert>
+      </Snackbar>
+      <Snackbar
+        open={goToLoginOpen}
+        autoHideDuration={4000}
+        onClose={() => setGoToLoginOpen(false)}
+        anchorOrigin={{ vertical: "top", horizontal: "center" }}
+        >
+        <Alert severity="warning" sx={{ fontWeight: "bold", fontSize: "1rem" }}>
+           כדי להוסיף לסל יש להיכנס לאתר 
         </Alert>
       </Snackbar>
     </Box>

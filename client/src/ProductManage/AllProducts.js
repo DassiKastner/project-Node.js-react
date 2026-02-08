@@ -41,6 +41,7 @@ const AllProducts = () => {
         flexWrap: "wrap",
         gap: 3,
         justifyContent: "center",
+        background: "#F1F8FF",
       }}
     >
       {products.length > 0 ? (
