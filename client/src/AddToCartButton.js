@@ -31,8 +31,8 @@ const AddToCartButton = ({ onAdd }) => {
           textTransform: "none",
           transition: "0.3s",
           "&:hover": {
-            backgroundColor: "#F4A7C1",
-            transform: "scale(1.05)",
+            backgroundColor: "#E88BB0",
+            boxShadow: "0 4px 15px rgba(232,139,176,0.5)",
           },
         }}
       >

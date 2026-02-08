@@ -4,14 +4,30 @@ import {
   TextField,
   Button,
   Stack,
+  Snackbar,
+  Alert,
 } from "@mui/material";
 import { ArrowUpward } from '@mui/icons-material';
 import { motion } from "framer-motion";
+import { useState } from "react";
 
 const Footer = () => {
+
+  const [snackbarOpen, setSnackbarOpen] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert("הפניה נשלחה בהצלחה 💌");
+    setSnackbarOpen(true);
+    setFormData({
+      name: "",
+      email: "",
+      message: "",
+    });
   };
 
   const scrollToTop = () => {
@@ -28,7 +44,6 @@ const Footer = () => {
         mt: 6,
       }}
     >
-      {/* טופס יצירת קשר – שורה אחת */}
       <form onSubmit={handleSubmit}>
         <Stack
           direction={{ xs: "column", md: "row" }}
@@ -39,10 +54,14 @@ const Footer = () => {
             placeholder="שם"
             size="small"
             required
+            value={formData.name}
+            onChange={(e) =>
+              setFormData({ ...formData, name: e.target.value })
+            }
             sx={{
                 backgroundColor: "#fff",
                 borderRadius: "20px",
-                // minWidth: 160,
+                minWidth: 160,
                 "& fieldset": { border: "none" },
             }}
            />
@@ -51,10 +70,14 @@ const Footer = () => {
             type="email"
             size="small"
             required
+            value={formData.email}
+            onChange={(e) =>
+              setFormData({ ...formData, email: e.target.value })
+            }
             sx={{
                 backgroundColor: "#fff",
                 borderRadius: "20px",
-                // minWidth: 220,   
+                minWidth: 220,   
                 "& fieldset": { border: "none" },
             }}
             />
@@ -62,6 +85,10 @@ const Footer = () => {
             placeholder="תוכן הפניה"
             size="small"
             required
+            value={formData.message}
+            onChange={(e) =>
+              setFormData({ ...formData, message: e.target.value })
+            }
             sx={{
                 backgroundColor: "#fff",
                 borderRadius: "20px",
@@ -125,6 +152,16 @@ const Footer = () => {
           © 2024 | נבנה ומנוהל ע״י <strong>דסי קסטנר</strong>
         </Typography>
       </Box>
+      <Snackbar
+        open={snackbarOpen}
+        autoHideDuration={2000}
+        onClose={() => {setSnackbarOpen(false);}}
+        anchorOrigin={{ vertical: "top", horizontal: "center" }}
+      >
+        <Alert severity="success" sx={{ fontWeight: "bold", fontSize: "1rem" }}>
+          פנייתך נשלחה בהצלחה!
+        </Alert>
+      </Snackbar>
     </Box>
   );
 };

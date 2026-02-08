@@ -100,47 +100,47 @@ const productsRef = useRef(null);
           transition={{ duration: 0.8, delay: 0.6 }}
         >
 
-<Box
-  sx={{
-    position: "relative",
-    display: "inline-flex",
-    mt: 4,
-  }}
->
-  {/* שכבת אנימציה */}
-  <Box
-    sx={{
-      position: "absolute",
-      inset: -12,
-      borderRadius: "999px",
-      backgroundColor: "rgba(201, 125, 151, 0.35)",
-      animation: "pulse 2s infinite",
-      zIndex: 0,
-    }}
-  />
+          <Box
+            sx={{
+              position: "relative",
+              display: "inline-flex",
+              mt: 4,
+            }}
+          >
+            {/* שכבת אנימציה */}
+            <Box
+              sx={{
+                position: "absolute",
+                inset: -12,
+                borderRadius: "999px",
+                backgroundColor: "rgba(201, 125, 151, 0.35)",
+                animation: "pulse 2s infinite",
+                zIndex: 0,
+              }}
+            />
 
-  <Button
-    onClick={scrollToProduct}
-    sx={{
-      position: "relative",
-      zIndex: 1,
-      px: 5,
-      py: 1.5,
-      borderRadius: "999px",
-      backgroundColor: "#F4A7C1",
-      color: "#fff",
-      fontWeight: "bold",
-      fontSize: "1.1rem",
-      textTransform: "none",
-      boxShadow: "0 10px 25px rgba(244,167,193,0.5)",
-      "&:hover": {
-        backgroundColor: "#E88BB0",
-      },
-    }}
-  >
-    צפייה במוצרים ↓
-  </Button>
-</Box>
+            <Button
+              onClick={scrollToProduct}
+              sx={{
+                position: "relative",
+                zIndex: 1,
+                px: 5,
+                py: 1.5,
+                borderRadius: "999px",
+                backgroundColor: "#F4A7C1",
+                color: "#fff",
+                fontWeight: "bold",
+                fontSize: "1.1rem",
+                textTransform: "none",
+                boxShadow: "0 10px 25px rgba(244,167,193,0.5)",
+                "&:hover": {
+                  backgroundColor: "#E88BB0",
+                },
+              }}
+            >
+              צפייה במוצרים ↓
+            </Button>
+          </Box>
         </motion.div>
       </Box>
     </Box>

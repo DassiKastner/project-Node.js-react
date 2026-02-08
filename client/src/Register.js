@@ -88,7 +88,7 @@ const Register = () => {
             sx={{
               fontSize: "1.6rem",
               fontWeight: "bold",
-              color: "#F4A7C1",
+              color: "#9cccec",
               mb: 3,
             }}
           >

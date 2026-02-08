@@ -84,7 +84,7 @@ const GetCart = () => {
           textAlign: "center",
           fontSize: "2rem",
           fontWeight: "bold",
-          color: "#F4A7C1",
+          color: "#9cccec",
           mb: 4,
         }}
       >
@@ -151,7 +151,7 @@ const GetCart = () => {
                 </Box>
 
                 <Box width="20%" textAlign="center">
-                    <IconButton onClick={() => deleteFunc(item._id)} sx={{ color: "#E88BB0" }}>
+                    <IconButton onClick={() => deleteFunc(item._id)} sx={{ color: "#ed3d3d" }}>
                     <DeleteForeverIcon />
                     </IconButton>
                 </Box>
@@ -178,7 +178,7 @@ const GetCart = () => {
           <Typography
             fontSize="1.3rem"
             fontWeight="bold"
-            color="#F4A7C1"
+            color="#f7ca27"
           >
             סה״כ לתשלום: ₪{totalPrice}
           </Typography>

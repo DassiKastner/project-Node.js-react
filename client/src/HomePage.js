@@ -28,12 +28,11 @@ const HomePage = () => {
   const token = localStorage.getItem("token");
   const productsRef = useRef(null);
   const [searchTerm, setSearchTerm] = useState("");
-  const [genderFilter, setGenderFilter] = useState(""); // "male", "female", או "" לכולם
-  const [priceFilter, setPriceFilter] = useState([0, 500]); // טווח מחירים
+  const [priceFilter, setPriceFilter] = useState([0, 500]);
 
   const scrollToProducts = () => {
     if (productsRef.current) {
-        const headerOffset = 140;
+        const headerOffset = 210;
         const elementPosition = productsRef.current.getBoundingClientRect().top;
         const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
@@ -75,9 +74,8 @@ const HomePage = () => {
 
   const filteredProducts = products.filter((item) => {
     const matchesSearch = item.title.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesGender = !genderFilter || item.gender === genderFilter;
     const matchesPrice = item.price >= priceFilter[0] && item.price <= priceFilter[1];
-    return matchesSearch && matchesGender && matchesPrice;
+    return matchesSearch && matchesPrice;
   });
 
 
@@ -86,12 +84,13 @@ const HomePage = () => {
     <Box
       sx={{
         minHeight: "100vh",
-        background: "linear-gradient(135deg, #FFF7FB 0%, #F1F8FF 100%)",
+        // background: "linear-gradient(135deg, #FFF7FB 0%, #F1F8FF 100%)",
+        background: "#F1F8FF",
         py: 6,
         px: 3,
       }}
     >
-        <HomeHeroVideo scrollToProduct={scrollToProducts} />
+      <HomeHeroVideo scrollToProduct={scrollToProducts} />
       <Typography
         align="center"
         sx={{
@@ -103,75 +102,58 @@ const HomePage = () => {
       >
         ✨ מוצרים שילדים אוהבים ✨
       </Typography>
-{/* <Box
-  dir="rtl"
-  sx={{
-    maxWidth: 1000,
-    mx: "auto",
-    mb: 5,
-    p: 3,
-    borderRadius: 4,
-    backgroundColor: "#fff",
-    boxShadow: "0 12px 30px rgba(0,0,0,0.08)",
-  }}
->
-  <Stack
-    direction={{ xs: "column", md: "row" }}
-    spacing={3}
-    alignItems="center"
-  > */}
-<Box dir="rtl" sx={{ display: "flex", gap: 8, mb: 3, flexWrap: "wrap" }}>
-  {/* חיפוש */}
-  <TextField
-  label="חיפוש מוצר"
-  value={searchTerm}
-  onChange={(e) => setSearchTerm(e.target.value)}
-  // fullWidth
-  size="small"
-  InputProps={{
-    startAdornment: (
-      <InputAdornment position="start"><SearchIcon/></InputAdornment>
-    ),
-  }}
-  sx={{
-    "& .MuiOutlinedInput-root": {
-      borderRadius: "30px",
-      backgroundColor: "#FFF7FB",
-    },
-  }}
-/>
 
-<Box sx={{ width: 200, mt: -2 }}>
-  <Typography
-    sx={{
-      fontSize: "0.9rem",
-      fontWeight: "bold",
-      color: "#888",
-      mb: 1,
-      textAlign: "center",
-    }}
-  >
-    מחיר: ₪{priceFilter[0]} – ₪{priceFilter[1]}
-  </Typography>
+    <Box dir="rtl" sx={{ display: "flex", gap: 8, mb: 3, flexWrap: "wrap" }}>
+      <TextField
+        label="חיפוש מוצר"
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
+        // fullWidth
+        size="small"
+        InputProps={{
+          startAdornment: (
+            <InputAdornment position="start"><SearchIcon/></InputAdornment>
+          ),
+        }}
+        sx={{
+          "& .MuiOutlinedInput-root": {
+            borderRadius: "30px",
+            backgroundColor: "#f4f3f0",
+          },
+        }}
+      />
 
-  <Slider
-    value={priceFilter}
-    onChange={(e, newValue) => setPriceFilter(newValue)}
-    min={0}
-    max={500}
-    step={10}
-    valueLabelDisplay="auto"
-    sx={{
-      color: "#ffe68b",
-      "& .MuiSlider-thumb": {
-        boxShadow: "0 0 0 6px #fbf3d4",
-      },
-    }}
-  />
-</Box>
+      <Box sx={{ width: 200, mt: -2 }}>
+        <Typography
+          sx={{
+            fontSize: "0.9rem",
+            fontWeight: "bold",
+            color: "#888",
+            mb: 1,
+            textAlign: "center",
+          }}
+        >
+          מחיר: ₪{priceFilter[0]} – ₪{priceFilter[1]}
+        </Typography>
 
-{/* </Stack> */}
-</Box>
+        <Slider
+          value={priceFilter}
+          onChange={(e, newValue) => setPriceFilter(newValue)}
+          min={0}
+          max={500}
+          step={10}
+          valueLabelDisplay="auto"
+          sx={{
+            color: "#ffe68b",
+            "& .MuiSlider-thumb": {
+              boxShadow: "0 0 0 6px #fbf3d4",
+            },
+          }}
+        />
+      </Box>
+
+    {/* </Stack> */}
+    </Box>
 
     <Box  ref={productsRef}>
       <Grid container spacing={4} justifyContent="center">
@@ -242,41 +224,15 @@ const HomePage = () => {
 
                 <Typography
                   sx={{
-                    fontSize: "1.1rem",
+                    fontSize: "1.3rem",
                     fontWeight: "bold",
-                    color: "#F4A7C1",
+                    color: "#f7ca27",
                     mb: 2,
                   }}
                 >
                    ₪ {item.price}
                 </Typography>
                 
-                {/* <Button
-                  fullWidth
-                  disabled={!token}
-                  onClick={() => AddToCart(item._id)}
-                  sx={{
-                    backgroundColor: "#F4A7C1",
-                    color: "#fff",
-                    borderRadius: "30px",
-                    fontWeight: "bold",
-                    py: 1,
-                    textTransform: "none",
-                    boxShadow: "0 8px 18px rgba(244,167,193,0.4)",
-                    transition: "0.3s",
-                    "&:hover": {
-                      transform: "scale(1.05)", 
-                      backgroundColor: "#E88BB0",
-                      boxShadow: "0 10px 25px rgba(232,139,176,0.5)",
-                    },
-                    "&:disabled": {
-                      backgroundColor: "#ddd",
-                      color: "#999",
-                    },
-                  }}
-                >
-                  <AddIcon /> הוסף לסל
-                </Button> */}
                 <AddToCartButton
                     key={item._id}
                     onAdd={() => AddToCart(item._id)}
